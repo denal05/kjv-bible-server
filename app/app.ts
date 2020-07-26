@@ -4,7 +4,8 @@ import fs from 'fs';
 
 // Create a new express application instance
 const app: express.Application = express();
-
+const hostname = 'localhost';
+const port = 3000;
 
 app.get('/', function (req, res) {
   fs.readFile('html/home.html', function (err, fileContents) {
@@ -37,6 +38,6 @@ app.get('/book/:bookId/chapter/:chapterId/verses/:fromV-:toV', function (req, re
 
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(port, hostname, function () {
+  console.log(`kjv-bible-server running at http://${hostname}:${port}/`);
 });
